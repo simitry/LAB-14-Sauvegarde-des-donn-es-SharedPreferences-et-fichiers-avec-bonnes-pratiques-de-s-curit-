@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The manifest declares app-level metadata and avoids storage permissions because all file access is private or app-specific. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- No READ/WRITE external storage permissions are needed for internal files, cache, or getExternalFilesDir(null). -->
+
+    <!-- The application block keeps the default template resources and points to the single-screen activity. -->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SecureStorageLabJava">
+        <!-- MainActivity is fully qualified because it lives in the ui package requested by the lab. -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <!-- The launcher filter makes this one activity the app entry point. -->
+            <intent-filter>
+                <!-- MAIN marks the activity as the first screen launched by Android. -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- LAUNCHER makes the activity visible from the device launcher. -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
